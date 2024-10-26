@@ -1,0 +1,152 @@
+[
+  {
+    "ContainingType": "GloboClimaAPI.Controllers.GloboClimaController",
+    "Method": "GetCountries",
+    "RelativePath": "GloboClima",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GloboClimaAPI.Models.PaisesDTO, GloboClimaAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GloboClimaAPI.Controllers.GloboClimaController",
+    "Method": "GetCountries",
+    "RelativePath": "GloboClima/{cityName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cityName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GloboClimaAPI.Models.PaisesDTO, GloboClimaAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GloboClimaAPI.Controllers.GloboClimaController",
+    "Method": "GetCountry",
+    "RelativePath": "GloboClima/pais/{nomePais}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nomePais",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GloboClimaAPI.Models.PaisesDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GloboClimaAPI.Controllers.GloboClimaInternoController",
+    "Method": "BuscaPaisesFavoritos",
+    "RelativePath": "GloboClimaInterno",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GloboClimaAPI.Services.DynamoDBService\u002BPaises, GloboClimaAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GloboClimaAPI.Controllers.GloboClimaInternoController",
+    "Method": "PostPais",
+    "RelativePath": "GloboClimaInterno",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pais",
+        "Type": "GloboClimaAPI.Services.DynamoDBService\u002BPaises",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GloboClimaAPI.Controllers.GloboClimaInternoController",
+    "Method": "DeletePais",
+    "RelativePath": "GloboClimaInterno/{nome}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nome",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GloboClimaAPI.Controllers.GloboClimaInternoController",
+    "Method": "ObterPais",
+    "RelativePath": "GloboClimaInterno/{nome}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nome",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GloboClimaAPI.Services.DynamoDBService\u002BPaises",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
