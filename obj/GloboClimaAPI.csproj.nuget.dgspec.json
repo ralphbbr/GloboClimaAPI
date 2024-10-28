@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DesafioTecnicoGlobo\\GloboClimaApp\\GloboClimaAPI\\GloboClimaAPI.csproj": {}
+    "D:\\DesafioTecnicoGlobo\\Teste\\GloboClima\\GloboClimaAPI\\GloboClimaAPI.csproj": {}
   },
   "projects": {
-    "D:\\DesafioTecnicoGlobo\\GloboClimaApp\\GloboClimaAPI\\GloboClimaAPI.csproj": {
+    "D:\\DesafioTecnicoGlobo\\Teste\\GloboClima\\GloboClimaAPI\\GloboClimaAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DesafioTecnicoGlobo\\GloboClimaApp\\GloboClimaAPI\\GloboClimaAPI.csproj",
+        "projectUniqueName": "D:\\DesafioTecnicoGlobo\\Teste\\GloboClima\\GloboClimaAPI\\GloboClimaAPI.csproj",
         "projectName": "GloboClimaAPI",
-        "projectPath": "D:\\DesafioTecnicoGlobo\\GloboClimaApp\\GloboClimaAPI\\GloboClimaAPI.csproj",
+        "projectPath": "D:\\DesafioTecnicoGlobo\\Teste\\GloboClima\\GloboClimaAPI\\GloboClimaAPI.csproj",
         "packagesPath": "C:\\Users\\Raphael\\.nuget\\packages\\",
-        "outputPath": "D:\\DesafioTecnicoGlobo\\GloboClimaApp\\GloboClimaAPI\\obj\\",
+        "outputPath": "D:\\DesafioTecnicoGlobo\\Teste\\GloboClima\\GloboClimaAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Raphael\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -57,6 +57,14 @@
               "target": "Package",
               "version": "[3.7.301, )"
             },
+            "Docker.DotNet": {
+              "target": "Package",
+              "version": "[3.125.15, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
             "Microsoft.Extensions.Http": {
               "target": "Package",
               "version": "[8.0.1, )"
@@ -68,6 +76,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.1.2, )"
             }
           },
           "imports": [

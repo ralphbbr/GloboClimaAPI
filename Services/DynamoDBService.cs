@@ -1,80 +1,63 @@
 ﻿using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.DynamoDBv2.Model;
-using System.Diagnostics.Metrics;
+using GloboClimaAPI.Models;
 
 namespace GloboClimaAPI.Services
 {
     public class DynamoDBService
     {
         private readonly AmazonDynamoDBClient _client;
-
-        public DynamoDBService()
-        {
-            // Configure o cliente para usar o DynamoDB Local
-            var config = new AmazonDynamoDBConfig
-            {
-                ServiceURL = "http://localhost:8001"
-            };
-
-            _client = new AmazonDynamoDBClient(config);
-        }
         private readonly IDynamoDBContext _context;
         public DynamoDBService(IAmazonDynamoDB dynamoDBClient)
         {
             _context = new DynamoDBContext(dynamoDBClient);
         }
-        public async Task<List<Paises>> GetAllCountriesAsync()
+        public async Task<List<PaisesModel>> BuscaTodosPaisesFavoritosAsync()
         {
-            var search = _context.ScanAsync<Paises>(new List<ScanCondition>());
+            var search = _context.ScanAsync<PaisesModel>(new List<ScanCondition>());
             var results = await search.GetNextSetAsync();
             return results;
         }
-        public async Task AddItemAsync(string nome)
+        public async Task<List<CityModel>> BuscaCidadesFavoritasAsync()
         {
-            var item = new Dictionary<string, AttributeValue>
-        {
-            { "nome", new AttributeValue { S = nome } }
-        };
-
-            var putItemRequest = new PutItemRequest
-            {
-                TableName = "paisesFavoritos",
-                Item = item
-            };
-
-            await _client.PutItemAsync(putItemRequest);
+            var search = _context.ScanAsync<CityModel>(new List<ScanCondition>());
+            var results = await search.GetNextSetAsync();
+            return results;
         }
-
         public async Task DeletePaisAsync(string nome)
         {
-            await _context.DeleteAsync<Paises>(nome);
+            await _context.DeleteAsync<PaisesModel>(nome);
         }
-        public async Task<Paises> ObterPaisAsync(string nome)
+        public async Task DeleteCidadeAsync(string nome)
         {
-            return await _context.LoadAsync<Paises>(nome);
+            await _context.DeleteAsync<CityModel>(nome);
         }
-        public async Task<List<Paises>> GetAllPaisesAsync()
+        public async Task<PaisesModel> ObterPaisAsync(string nome)
         {
-            return await _context.ScanAsync<Paises>(new List<ScanCondition>()).GetRemainingAsync();
+            return await _context.LoadAsync<PaisesModel>(nome);
         }
-        public async Task<bool> PaisExistsAsync(string nome)
+        public async Task<List<PaisesModel>> GetAllPaisesAsync()
         {
-            var pais = await _context.LoadAsync<Paises>(nome);
+            return await _context.ScanAsync<PaisesModel>(new List<ScanCondition>()).GetRemainingAsync();
+        }
+        public async Task<bool> PaisCadastradoAsync(string nome)
+        {
+            var pais = await _context.LoadAsync<PaisesModel>(nome);
             return pais != null;
         }
-        public async Task SavePaisAsync(Paises pais)
+        public async Task<bool> CidadeCadastradaAsync(string nome)
+        {
+            var cidade = await _context.LoadAsync<CityModel>(nome);
+            return cidade != null;
+        }
+        public async Task SalvaPaisAsync(PaisesModel pais)
         {
             await _context.SaveAsync(pais);
         }
-
-        [DynamoDBTable("paisesFavoritos")]
-        public class Paises
+        public async Task SalvaCidadeAsync(CityModel cidade)
         {
-            [DynamoDBProperty("pais_nome")]
-            public string Nome { get; set; }
+            await _context.SaveAsync(cidade);
         }
-
-
     }
 }

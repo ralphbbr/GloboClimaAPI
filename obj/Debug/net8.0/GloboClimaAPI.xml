@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GloboClimaAPI</name>
+    </assembly>
+    <members>
+        <member name="M:GloboClimaAPI.Controllers.GloboClimaController.BuscaPais(System.String)">
+            <summary>
+            Busca o pais de acordo com o nome fornecido, alguns paises como Cazaquistão só consegue realizar a busca em ingles. Exemplo de uso: /GloboClima/pais/Cazaquistao
+            </summary>
+            <returns>Os dados relacionados ao pais escolhido como por exemplo a moeda do pais.</returns>
+        </member>
+        <member name="M:GloboClimaAPI.Controllers.GloboClimaController.BuscaCidade(System.String)">
+            <summary>
+            Busca a cidade de acordo com o nome fornecido. Exemplo de uso: /GloboClima/belem
+            </summary>
+            <returns>Os dados climaticos relacionados a cidade escolhida como por exemplo a temperatura no momento.</returns>
+        </member>
+        <member name="M:GloboClimaAPI.Controllers.GloboClimaInternoController.BuscaPaisesFavoritos">
+            <summary>
+            Busca todos os paises que foram adicionados como favoritos na base de dados. Exemplo de uso: /GloboClimaInterno
+            </summary>
+            <returns>a listagem de todos os paises presentes na tabela paisesFavoritos localizados na tabela de dados.</returns>
+        </member>
+        <member name="M:GloboClimaAPI.Controllers.GloboClimaInternoController.BuscaCidadesFavoritas">
+            <summary>
+            Busca todos as cidades que foram adicionadas como favoritas na base de dados. Exemplo de uso: /GloboClimaInterno/cidade
+            </summary>
+            <returns>a listagem de todas as cidades presentes na tabela cidadesFavoritas localizados na tabela de dados.</returns>
+        </member>
+        <member name="M:GloboClimaAPI.Controllers.GloboClimaInternoController.SalvaCidade(GloboClimaAPI.Models.CityModel)">
+            <summary>
+            Adiciona uma cidade a tabela cidadesFavoritas na base de dados. Exemplo de uso: /GloboClimaInterno/cidade/belem
+            </summary>
+            <returns>retorna a confirmação ou negação de que a cidade foi inserida na tabela de dados.</returns>
+        </member>
+        <member name="M:GloboClimaAPI.Controllers.GloboClimaInternoController.SalvaPais(GloboClimaAPI.Models.PaisesModel)">
+            <summary>
+            Adiciona um pais a tabela paisesFavoritos na base de dados. Exemplo de uso: /GloboClimaInterno/brasil
+            </summary>
+            <returns>retorna a confirmação ou negação de que o pais foi inserido na tabela de dados.</returns>
+        </member>
+        <member name="M:GloboClimaAPI.Controllers.GloboClimaInternoController.DeletePais(System.String)">
+            <summary>
+            Remove um pais da tabela paisesFavoritos na base de dados. Exemplo de uso: /GloboClimaInterno/brasil
+            ATENÇÃO: É NECESSARIO QUE EXISTA O PAIS CADASTRADA NA TABELA PARA QUE DE SUCESSO
+            </summary>
+            <returns>retorna a confirmação ou negação de que o pais foi removido na tabela de dados.</returns>
+        </member>
+        <member name="M:GloboClimaAPI.Controllers.GloboClimaInternoController.DeleteCidade(System.String)">
+            <summary>
+            Remove uma cidade da tabela cidadesFavoritas na base de dados. Exemplo de uso: /GloboClimaInterno/cidade/belem
+            ATENÇÃO: É NECESSARIO QUE EXISTA A CIDADE CADASTRADA NA TABELA PARA QUE DE SUCESSO
+            </summary>
+            <returns>retorna a confirmação ou negação de que a cidade foi removida na tabela de dados.</returns>
+        </member>
+    </members>
+</doc>

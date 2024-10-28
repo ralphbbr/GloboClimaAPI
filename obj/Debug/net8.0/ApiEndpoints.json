@@ -1,34 +1,14 @@
 [
   {
     "ContainingType": "GloboClimaAPI.Controllers.GloboClimaController",
-    "Method": "GetCountries",
-    "RelativePath": "GloboClima",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[GloboClimaAPI.Models.PaisesDTO, GloboClimaAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "GloboClimaAPI.Controllers.GloboClimaController",
-    "Method": "GetCountries",
-    "RelativePath": "GloboClima/{cityName}",
+    "Method": "BuscaCidade",
+    "RelativePath": "GloboClima/{cidade}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "cityName",
+        "Name": "cidade",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -47,14 +27,14 @@
   },
   {
     "ContainingType": "GloboClimaAPI.Controllers.GloboClimaController",
-    "Method": "GetCountry",
-    "RelativePath": "GloboClima/pais/{nomePais}",
+    "Method": "BuscaPais",
+    "RelativePath": "GloboClima/pais/{pais}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "nomePais",
+        "Name": "pais",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -81,7 +61,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[GloboClimaAPI.Services.DynamoDBService\u002BPaises, GloboClimaAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[GloboClimaAPI.Models.PaisesModel, GloboClimaAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -93,7 +73,7 @@
   },
   {
     "ContainingType": "GloboClimaAPI.Controllers.GloboClimaInternoController",
-    "Method": "PostPais",
+    "Method": "SalvaPais",
     "RelativePath": "GloboClimaInterno",
     "HttpMethod": "POST",
     "IsController": true,
@@ -101,7 +81,7 @@
     "Parameters": [
       {
         "Name": "pais",
-        "Type": "GloboClimaAPI.Services.DynamoDBService\u002BPaises",
+        "Type": "GloboClimaAPI.Models.PaisesModel",
         "IsRequired": true
       }
     ],
@@ -125,9 +105,45 @@
   },
   {
     "ContainingType": "GloboClimaAPI.Controllers.GloboClimaInternoController",
-    "Method": "ObterPais",
-    "RelativePath": "GloboClimaInterno/{nome}",
+    "Method": "BuscaCidadesFavoritas",
+    "RelativePath": "GloboClimaInterno/cidade",
     "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GloboClimaAPI.Models.CityModel, GloboClimaAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GloboClimaAPI.Controllers.GloboClimaInternoController",
+    "Method": "SalvaCidade",
+    "RelativePath": "GloboClimaInterno/cidade",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cidade",
+        "Type": "GloboClimaAPI.Models.CityModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GloboClimaAPI.Controllers.GloboClimaInternoController",
+    "Method": "DeleteCidade",
+    "RelativePath": "GloboClimaInterno/cidade/{nome}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -137,16 +153,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "GloboClimaAPI.Services.DynamoDBService\u002BPaises",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   }
 ]
