@@ -9,11 +9,9 @@ using System.Text;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using GloboClimaAPI.Swagger;
-using System.Security.Cryptography.X509Certificates;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
-var cert = new X509Certificate2("./mycert.pfx", "");
 
 builder.Services.AddControllers();
 builder.Services.AddHttpClient<GloboClimaService>();
@@ -27,13 +25,6 @@ builder.Services.AddAWSService<IAmazonDynamoDB>(new AWSOptions
 {
     Credentials = credentials,
     Region = Amazon.RegionEndpoint.USEast2
-});
-builder.WebHost.ConfigureKestrel(serverOptions =>
-{
-    serverOptions.ListenAnyIP(8080, listenOptions =>
-    {
-        listenOptions.UseHttps(cert);
-    });
 });
 
 builder.Services.AddEndpointsApiExplorer();
