@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GloboClimaAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d98453f1e4b5403351cc0ad91ead4f4b90439a4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+171b5f51cc4553d3a864ead4d901fdc3e8562943")]
 [assembly: System.Reflection.AssemblyProductAttribute("GloboClimaAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GloboClimaAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
